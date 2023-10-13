@@ -1,0 +1,48 @@
+--문제 2번
+--1. 직원명단 테이블을 작성하고 아래처럼 구현하라
+-- 사원번호 : 문자 기본키 / 이름 부서 : 문자 낫널 / 나이 : 숫자
+CREATE TABLE EMPLOYEE (
+EMPNUM VARCHAR2(20) PRIMARY KEY,
+ENAME VARCHAR2(30)NOT NULL,
+DEPART VARCHAR2(30)NOT NULL,
+AGE INT
+);
+
+--2. 부서명단 테이블을 작성하고 아래처럼 구현하라
+-- 부서번호 : 문자 기본키 / 부서이름 : 문자 낫널 / 직원수 : 숫자
+CREATE TABLE DEPARTMENT(
+DENUM VARCHAR2(20) PRIMARY KEY,
+DENAME VARCHAR2(30)NOT NULL,
+NUMOFEMP INT
+);
+
+--3. 직원명단 테이블에 데이터를 추가하라
+INSERT INTO EMPLOYEE VALUES('521','김길동','경영행정부',25);
+INSERT INTO EMPLOYEE VALUES('525','이길동','교무부',40);
+INSERT INTO EMPLOYEE VALUES('523','최길동','교무부',30);
+INSERT INTO EMPLOYEE VALUES('524','정길동','교무지원부',29);
+
+--4. 부서명단 테이블에 데이터를 추가하라
+INSERT INTO DEPARTMENT VALUES('1','교무부',30);
+INSERT INTO DEPARTMENT VALUES('2','교무지원부',15);
+INSERT INTO DEPARTMENT VALUES('3','경영행정부',10);
+
+--5. 3,4번 문항의 모든 데이터를 출력하라
+SELECT * FROM EMPLOYEE;
+SELECT * FROM DEPARTMENT;
+
+--6. 직원명단 테이블에 대해서 이름과 부서 칼럼에 대한 정보만 출력하여라
+SELECT ENAME,DEPART FROM EMPLOYEE;
+
+--7. 직원명단 테이블에 대해서 부서가 교무부인 데이터만 검색하여 사원번호,이름,부서 칼럼만 출력하라
+SELECT EMPNUM,ENAME,DEPART FROM EMPLOYEE WHERE DEPART = '교무부';
+
+--8. 부서명단 테이블에 대해서 직원수가 10초과인 데이터만 검색하여 부서이름,직원수 칼럼만 출력하라
+SELECT DENAME,NUMOFEMP FROM DEPARTMENT WHERE NUMOFEMP>10;
+
+--9. 부서명단 테이블에 대해서 부서번호가 2인 데이터만 검색하여 전체칼럼의 정보를 출력하라
+SELECT DENUM,DENAME,NUMOFEMP FROM DEPARTMENT WHERE DENUM ='2';
+
+--10. 직원명단과 부서명단 테이블을 삭제하여라
+DROP TABLE EMPLOYEE;
+DROP TABLE DEPARTMENT;
